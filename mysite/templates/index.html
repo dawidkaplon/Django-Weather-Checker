@@ -1,7 +1,63 @@
 {% extends 'base.html' %}
 
-{% block title %} Home Page {% endblock %}
-
 {% block content %}
-<h1 style="text-align: center;">Hello World!</h1>
+<div class="form-container">
+    <form method="post" class="weather-form">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" name="city" id="city-input" class="form-control" placeholder="Search for city">
+            <a class="magnifier-icon" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+    </form>
+</div>
+
+<div class="comparison-container">
+    {% if weather_data %}
+    <div class="city-container">
+        {% include 'show_weather.html' with weather_data=weather_data %}
+    </div>
+    {% else %}
+    <h1>{{error}}</h1>
+    {% endif %}
+</div>
+
+<style>
+    .form-container {
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .weather-form {
+        display: inline-block;
+    }
+
+    .comparison-container {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .city-container {
+        margin-top: 2rem;
+    }
+
+    .magnifier-icon {
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        text-decoration: none;
+        color: black;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .magnifier-icon:hover {
+        background-color: rgba(0, 0, 0);
+        color: white;
+    }
+
+</style>
+
 {% endblock %}

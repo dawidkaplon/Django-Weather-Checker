@@ -1,0 +1,41 @@
+{% if weather_data %}
+<div id="animated-element" style="opacity: 0;">
+    <div class="weather-info">
+        <h1 class="city">{{ weather_data.city }}, {{weather_data.country}}</h1>
+        <div class="temperature">{{ weather_data.temperature }}°C</div>
+        <img class="icon" src={{weather_data.icon}} alt="{{ weather_data.description }}">
+        <div class="description">{{ weather_data.description }}</div>
+    </div>
+</div>
+{% endif %}
+
+<style>
+    .weather-info {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.city {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.temperature {
+    font-size: 2rem;
+    color: #ff5733;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 1.5rem;
+    color: #777;
+    margin-top: 20px;
+}
+
+.icon {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+</style>
