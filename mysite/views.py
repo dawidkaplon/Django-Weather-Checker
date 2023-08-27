@@ -28,11 +28,12 @@ def index(request):
 def fetch_weather(city, api_key, current_weather_url):
     response = requests.get(current_weather_url.format(city, api_key)).json()
     description = response['weather'][0]['description']
+    dt = datetime.datetime.fromtimestamp(response['dt'])
 
     if 'clear' in description:
         icon_src = 'https://i.ibb.co/TrJ8RhK/sun.png'
     elif 'clouds' in description:
-        icon_src = 'https://i.ibb.co/C1QZ55c/clouds.png'
+        icon_src = 'https://i.ibb.co/w4qYC3X/clouds.png'
     elif 'rain' in description:
         icon_src = 'https://i.ibb.co/MV8VFLv/rain.png'
     elif 'thunderstorm' in description:
@@ -45,15 +46,17 @@ def fetch_weather(city, api_key, current_weather_url):
     weather_data = {
         'city': city,
         'temperature': round(response['main']['temp'] - 273.15, 1),
-        'description': description,
+        'description': description.title(),
         'icon': icon_src,
         'country': response['sys']['country'],
-        'feel_temp': round(response['main']['feels_like'] - 273.15, 1),
+        'real_feel': round(response['main']['feels_like'] - 273.15, 1),
         'min_temp': round(response['main']['temp_min'] - 273.15, 1),
         'max_temp': round(response['main']['temp_max'] - 273.15, 1),
         'wind_speed': response['wind']['speed'],
         'pressure': response['main']['pressure'],
         'humidity': response['main']['humidity'],
+        'clouds_level': response['clouds']['all'],
+        'datetime': dt,
     }
 
     return weather_data
