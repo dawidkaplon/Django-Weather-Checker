@@ -1,63 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="form-container">
-    <form method="post" class="weather-form">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-            <input type="text" name="city" id="city-input" class="form-control" placeholder="Search for city">
-            <a class="magnifier-icon" href="#">
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-    </form>
-</div>
 
-<div class="comparison-container">
-    {% if weather_data %}
-    <div class="city-container">
-        {% include 'show_weather.html' with weather_data=weather_data %}
-    </div>
-    {% else %}
-    <h1>{{error}}</h1>
-    {% endif %}
-</div>
+{% if not weather_data %}
 
 <style>
     .form-container {
         text-align: center;
-        margin-top: 4rem;
+        margin-top: 15.0rem;
     }
-
-    .weather-form {
-        display: inline-block;
-    }
-
-    .comparison-container {
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    .city-container {
-        margin-top: 2rem;
-    }
-
-    .magnifier-icon {
-        display: inline-block;
-        background-color: transparent;
-        border: none;
-        padding: 0.25rem 0.5rem;
-        text-decoration: none;
-        color: black;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-
-    .magnifier-icon:hover {
-        background-color: rgba(0, 0, 0);
-        color: white;
-    }
-
 </style>
+
+
+{% else %}
+
+<style>
+    .form-container {
+        text-align: left;
+        margin-left: 3.5rem;
+        margin-top: 2.0rem;
+    }
+</style>
+
+{% endif %}
+
+<div class="form-container">
+    <form method="post" class="weather-form">
+        {% csrf_token %}
+        <input type="text" name="city" id="city-input" placeholder="Search for cities" class="city-input">
+        <button type="submit" class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+</div>
+</div>
+
+{% if weather_data %}
+{% include 'show_weather.html' with weather_data=weather_data %}
+{% else %}
+<div class="error-message">
+    <h1>{{error}}</h1>
+</div>
+{% endif %}
 
 {% endblock %}

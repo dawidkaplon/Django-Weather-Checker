@@ -1,41 +1,59 @@
 {% if weather_data %}
-<div id="animated-element" style="opacity: 0;">
     <div class="weather-info">
-        <h1 class="city">{{ weather_data.city }}, {{weather_data.country}}</h1>
-        <div class="temperature">{{ weather_data.temperature }}°C</div>
-        <img class="icon" src={{weather_data.icon}} alt="{{ weather_data.description }}">
-        <div class="description">{{ weather_data.description }}</div>
+        <div class="row">
+            <div class="col main-panel" style="text-align: left; margin-left: 4rem; margin-top: 2rem;">
+                <h1 class="city">{{ weather_data.city }}</h1>
+                <div class="datetime">{{weather_data.datetime}}</div>
+                <div class="temperature">{{ weather_data.temperature }}°</div>
+            </div>
+            <!-- <div class="divider col" style="border-left: 6px solid #999; height: 240px; margin-left: 10rem;"></div> -->
+            <div class="col main-panel" style="margin-right: 50rem; margin-top: 2rem;">
+                <img class="icon" src={{weather_data.icon}} alt="{{ weather_data.description }}">
+                <div class="description">{{ weather_data.description }}</div>
+            </div>
+        </div>
+    <div class="row" style="margin-top: 3rem;">
+        <div class="weather-left-panel col">
+            <div class="col-header">TEMPERATURE</div>
+            <div class="row">
+                    <!-- <img src="https://i.ibb.co/3sLCmP7/temperature-1.png" class="weather-image"> -->
+                    <div class="current-temp temp col weather-header">Current temp <br><strong
+                        style="color: lightblue; font-size: 2rem; font-weight: bold;">{{weather_data.temperature}}°</strong>
+                </div>
+                <div class="feel-temp temp col weather-header">Real feel<br><strong
+                        style="color: lightblue; font-size: 2rem; font-weight: bold">{{weather_data.real_feel}}°</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="min-temp temp col weather-header">Min. temp<br><strong
+                        style="color: lightblue; font-size: 2rem; font-weight: bold">{{weather_data.min_temp}}°</strong>
+                </div>
+                <div class="max-temp temp col weather-header">Max. temp<br><strong
+                        style="color: lightblue; font-size: 2rem; font-weight: bold">{{weather_data.max_temp}}°</strong>
+                </div>
+            </div>
+        </div>
+        <div class="weather-right-panel col">
+            <div class="col-header">AIR CONDITIONS</div>
+            <div class="row">
+                <div class="wind-speed col weather-header">Wind<br><strong
+                    style="color: black; font-size: 2rem; font-weight: bold">{{weather_data.wind_speed}} km/h</strong>
+                </div>
+                <div class="humidity col weather-header">Humidity<br><strong
+                    style="color: black; font-size: 2rem; font-weight: bold">{{weather_data.humidity}}%</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pressure col weather-header">Pressure<br><strong
+                    style="color: black; font-size: 2rem; font-weight: bold">{{weather_data.pressure}} hPa</strong>
+                </div>
+                <div class="clouds-level col weather-header">Clouds level<br><strong
+                    style="color: black; font-size: 2rem; font-weight: bold">{{weather_data.clouds_level}}%</strong>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+</div>
+
 {% endif %}
-
-<style>
-    .weather-info {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.city {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.temperature {
-    font-size: 2rem;
-    color: #ff5733;
-    font-weight: bold;
-}
-
-.description {
-    font-size: 1.5rem;
-    color: #777;
-    margin-top: 20px;
-}
-
-.icon {
-    width: 200px;
-    height: 200px;
-    margin-top: 20px;
-}
-</style>
