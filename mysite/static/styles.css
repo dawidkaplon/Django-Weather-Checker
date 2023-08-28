@@ -1,0 +1,130 @@
+/* Index/Searchbar */
+body {
+    background-image: url(https://i.ibb.co/y6zJZSW/ezgif-com-gif-maker.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+.error-message {
+    text-align: center;
+    margin-top: 1.8rem;
+}
+
+.city-input {
+    padding: 10px;
+    background-color: rgb(0, 0, 0, 0.1);
+    border: 1px solid white;
+    color: rgb(255,255,255,0.5);
+    border-radius: 20px;
+    font-size: 20px;
+    width: 700px;
+}
+
+.city-input::placeholder {
+    color: rgb(255,255,255,0.5);
+}
+
+.search-button {
+    background-color: rgb(0, 0, 0, 0.1);
+    color: gainsboro;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+}
+
+.search-button:hover {
+    background-color: rgb(0,0,0,0.25);
+}
+
+
+/* WEATHER INFO */
+
+.row{
+    flex-direction: row;
+    text-align: center;
+}
+
+.weather-left-panel {
+    margin-left: 50px;
+    margin-right: 25px;
+    margin-bottom: 5rem;
+    background-color: rgb(0, 0, 0, 0.15);
+    box-shadow: 10px 10px 20px 5px gainsboro;
+    border-radius: 5%;
+    font-weight: bold;
+}
+
+.weather-right-panel {
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 5rem;
+    background-color: rgb(0, 0, 0, 0.15);
+    box-shadow: 10px 10px 20px 5px gainsboro;
+    border-radius: 5%;
+    font-weight: bold;
+}
+
+.city {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+
+.datetime {
+    font-weight: bold;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.temperature {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-top: 2.8rem;
+    color: black;
+}
+
+.description {
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0, 0.5);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.icon {
+    width: 140px;
+    height: 140px;
+    margin-top: 5px;
+}
+
+.humidity,
+.wind-speed,
+.pressure,
+.temp,
+.clouds-level {
+    font-size: 1.3rem;
+}
+
+.col-header {
+    text-align: center;
+    font-size: 1rem;
+    color:rgb(255,255,255,0.5);
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.weather-header {
+    font-weight: 100;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color:rgb(255,255,255,0.5);
+}
+
+.weather-image {
+    width: 20px;
+    height: 25px;
+}
