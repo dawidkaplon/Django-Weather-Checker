@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import request
+from datetime import datetime
 import requests
-import datetime
+
 
 # Create your views here.
 
@@ -20,15 +21,17 @@ def index(request):
 
             return render(request, 'index.html', context)
         except KeyError:
-            return render(request, 'index.html', {'error': 'There is no such city!'})
+            return render(request, 'index.html', {'error': 'There is no such city'})
     else:
         return render(request, 'index.html')
 
 
 def fetch_weather(city, api_key, current_weather_url):
     response = requests.get(current_weather_url.format(city, api_key)).json()
+    tz = response['timezone']
+    dt = datetime.fromtimestamp(response['dt'] + tz - 7200).strftime('%Y-%m-%d %H:%M:%S')
+    print(dt)
     description = response['weather'][0]['description']
-    dt = datetime.datetime.fromtimestamp(response['dt'])
 
     if 'clear' in description:
         icon_src = 'https://i.ibb.co/TrJ8RhK/sun.png'
@@ -52,7 +55,7 @@ def fetch_weather(city, api_key, current_weather_url):
         'real_feel': round(response['main']['feels_like'] - 273.15, 1),
         'min_temp': round(response['main']['temp_min'] - 273.15, 1),
         'max_temp': round(response['main']['temp_max'] - 273.15, 1),
-        'wind_speed': response['wind']['speed'],
+        'wind_speed': round(response['wind']['speed'], 1),
         'pressure': response['main']['pressure'],
         'humidity': response['main']['humidity'],
         'clouds_level': response['clouds']['all'],
