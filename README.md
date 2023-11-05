@@ -53,10 +53,10 @@ python manage.py runserver [port(optional)]
 - **Quality can be poor due to GIF compression**
 - **For better view please check the screenshots below**
 
-  
+
 ![WebsitePreview](https://github.com/dawidkaplon/Django-Weather-Checker/blob/c155075eb04eaa0d326b41063a62d690130312b6/mysite/static/website-preview.gif)
-
+<br><br>
 ![WebsitePreview2](https://github.com/dawidkaplon/Django-Weather-Checker/blob/f897668df21be0cc0e594028a912f90d91917ca9/mysite/static/weather-checker-preview2.png)
-
+<br><br>
 ![WebsitePreview3](https://github.com/dawidkaplon/Django-Weather-Checker/blob/f897668df21be0cc0e594028a912f90d91917ca9/mysite/static/weather-checker-preview3.png)
    
