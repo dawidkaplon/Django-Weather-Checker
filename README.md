@@ -1,5 +1,7 @@
 # Weather-Checker
 
+🚨 **Note:** In order website to work, You have to get your own API_KEY from OpenWeatherMap and paste it into API_KEY.txt!
+
 ## Overview
 
 Weather-Checker is a simple and intuitive web application that allows users to quickly check the current weather conditions for any location worldwide. 
@@ -19,13 +21,33 @@ Whether you're planning a trip, checking the weather before heading out for the 
 
 To use Weather-Checker, follow these simple steps:
 
-1. **Clone the Repository**: 
-   ```bash
-   git clone https://github.com/dawidkaplon/Django-Weather-Checker.git
+1. ***Create a virtual environment & activate it:***
 
-2. **Run the server in the Command Prompt**:
-   ```cmd
-   python manage.py runserver [port(optional)]
+```sh
+python -m venv venv
+venv\Scripts\activate
+```
+
+2. ***Clone the Repository***: 
+```sh
+git clone https://github.com/dawidkaplon/Django-Weather-Checker.git
+```
+   
+3. ***Install project dependencies from requirements.txt:***
+```sh
+pip install -r requirements.txt
+```
+
+4. ***Make necessary migrations:***
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+5. **Run the server in the Command Prompt**:
+```sh
+python manage.py runserver [port(optional)]
+```
 
 ## Website preview:
 - **Quality can be poor due to GIF compression**
