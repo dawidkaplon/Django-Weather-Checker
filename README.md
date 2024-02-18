@@ -4,7 +4,7 @@
 
 ## Overview
 
-Weather-Checker is a simple and intuitive web application that allows users to quickly check the current weather conditions for any location worldwide. 
+Weather-Checker is a simple and intuitive Django web application that allows users to quickly check the current weather conditions for any location worldwide. 
 Whether you're planning a trip, checking the weather before heading out for the day, or just curious about the weather in different parts of the world, Weather-Checker has got you covered.
 
 ## Features
